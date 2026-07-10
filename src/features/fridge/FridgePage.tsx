@@ -316,6 +316,17 @@ export const FridgePage: React.FC = () => {
               {matches.map(({ recipe, haveCount, totalCount, matchPct, missing }) => (
                 <Card key={recipe.id} className="p-5 flex flex-col justify-between hover:shadow-md transition-shadow relative">
                   <div className="space-y-4">
+                    {/* Recipe Image */}
+                    {recipe.imageUrl && (
+                      <div className="w-full h-32 rounded bg-primary/10 overflow-hidden relative border border-primary/5">
+                        <img 
+                          src={recipe.imageUrl} 
+                          alt={recipe.name} 
+                          className="w-full h-full object-cover"
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
                     
                     {/* Header: Title & percentage score */}
                     <div className="flex justify-between items-start gap-4">

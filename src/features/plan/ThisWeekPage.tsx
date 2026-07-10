@@ -348,9 +348,21 @@ export const ThisWeekPage: React.FC = () => {
                         </button>
                       </div>
                       
-                      <span className="font-bold text-text block truncate leading-tight">
-                        {recipeMap.get(day.breakfast.recipeId)?.name || 'Recipe Loading...'}
-                      </span>
+                      <div className="flex gap-2.5 items-center">
+                        {recipeMap.get(day.breakfast.recipeId)?.imageUrl && (
+                          <img 
+                            src={recipeMap.get(day.breakfast.recipeId)?.imageUrl} 
+                            alt="" 
+                            className="w-10 h-10 object-cover rounded border border-primary/10 shrink-0"
+                            loading="lazy"
+                          />
+                        )}
+                        <div className="flex-1 min-w-0">
+                          <span className="font-bold text-text block truncate leading-tight">
+                            {recipeMap.get(day.breakfast.recipeId)?.name || 'Recipe Loading...'}
+                          </span>
+                        </div>
+                      </div>
 
                       {/* Info & Action Row */}
                       <div className="flex justify-between items-center pt-1 border-t border-primary/5">
@@ -388,9 +400,21 @@ export const ThisWeekPage: React.FC = () => {
                         </button>
                       </div>
                       
-                      <span className="font-bold text-text block truncate leading-tight">
-                        {recipeMap.get(day.lunch.recipeId)?.name || 'Recipe Loading...'}
-                      </span>
+                      <div className="flex gap-2.5 items-center">
+                        {recipeMap.get(day.lunch.recipeId)?.imageUrl && (
+                          <img 
+                            src={recipeMap.get(day.lunch.recipeId)?.imageUrl} 
+                            alt="" 
+                            className="w-10 h-10 object-cover rounded border border-primary/10 shrink-0"
+                            loading="lazy"
+                          />
+                        )}
+                        <div className="flex-1 min-w-0">
+                          <span className="font-bold text-text block truncate leading-tight">
+                            {recipeMap.get(day.lunch.recipeId)?.name || 'Recipe Loading...'}
+                          </span>
+                        </div>
+                      </div>
 
                       {/* Info & Action Row */}
                       <div className="flex justify-between items-center pt-1 border-t border-primary/5">
@@ -429,9 +453,21 @@ export const ThisWeekPage: React.FC = () => {
                           </button>
                         </div>
                         
-                        <span className="font-bold text-text block truncate leading-tight">
-                          {recipeMap.get(snack.recipeId)?.name || 'Recipe Loading...'}
-                        </span>
+                        <div className="flex gap-2.5 items-center">
+                          {recipeMap.get(snack.recipeId)?.imageUrl && (
+                            <img 
+                              src={recipeMap.get(snack.recipeId)?.imageUrl} 
+                              alt="" 
+                              className="w-10 h-10 object-cover rounded border border-primary/10 shrink-0"
+                              loading="lazy"
+                            />
+                          )}
+                          <div className="flex-1 min-w-0">
+                            <span className="font-bold text-text block truncate leading-tight">
+                              {recipeMap.get(snack.recipeId)?.name || 'Recipe Loading...'}
+                            </span>
+                          </div>
+                        </div>
 
                         {/* Info & Action Row */}
                         <div className="flex justify-between items-center pt-1 border-t border-primary/5">
@@ -469,9 +505,21 @@ export const ThisWeekPage: React.FC = () => {
                         </button>
                       </div>
                       
-                      <span className="font-bold text-text block truncate leading-tight">
-                        {recipeMap.get(day.dinner.recipeId)?.name || 'Recipe Loading...'}
-                      </span>
+                      <div className="flex gap-2.5 items-center">
+                        {recipeMap.get(day.dinner.recipeId)?.imageUrl && (
+                          <img 
+                            src={recipeMap.get(day.dinner.recipeId)?.imageUrl} 
+                            alt="" 
+                            className="w-10 h-10 object-cover rounded border border-primary/10 shrink-0"
+                            loading="lazy"
+                          />
+                        )}
+                        <div className="flex-1 min-w-0">
+                          <span className="font-bold text-text block truncate leading-tight">
+                            {recipeMap.get(day.dinner.recipeId)?.name || 'Recipe Loading...'}
+                          </span>
+                        </div>
+                      </div>
 
                       {/* Info & Action Row */}
                       <div className="flex justify-between items-center pt-1 border-t border-primary/5">
@@ -589,15 +637,23 @@ export const ThisWeekPage: React.FC = () => {
                   <div
                     key={recipe.id}
                     onClick={() => handleApplySwap(recipe)}
-                    className="flex justify-between items-center p-3 rounded bg-primary/5 hover:bg-primary/10 cursor-pointer border border-primary/10 text-sm transition-all active:scale-95"
+                    className="flex items-center gap-3 p-3 rounded bg-primary/5 hover:bg-primary/10 cursor-pointer border border-primary/10 text-sm transition-all active:scale-95"
                   >
-                    <div>
-                      <span className="font-bold text-primary block">{recipe.name}</span>
-                      <span className="text-xs text-text-muted">
+                    {recipe.imageUrl && (
+                      <img 
+                        src={recipe.imageUrl} 
+                        alt="" 
+                        className="w-10 h-10 object-cover rounded border border-primary/10 shrink-0"
+                        loading="lazy"
+                      />
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <span className="font-bold text-primary block truncate">{recipe.name}</span>
+                      <span className="text-xs text-text-muted block mt-0.5">
                         {recipe.cuisine} • {recipe.nutritionPerServing.calories} kcal
                       </span>
                     </div>
-                    <span className="text-xs font-bold text-accent">₦{recipe.estimatedCostPerServing}</span>
+                    <span className="text-xs font-bold text-accent shrink-0">₦{recipe.estimatedCostPerServing}</span>
                   </div>
                 ))
               )}

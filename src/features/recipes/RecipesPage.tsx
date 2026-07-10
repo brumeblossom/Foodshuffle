@@ -262,10 +262,21 @@ export const RecipesPage: React.FC = () => {
           filteredRecipes.map((recipe) => (
             <Card key={recipe.id} className="p-4 flex flex-col justify-between hover:shadow-md transition-shadow">
               <div className="space-y-3">
-                {/* Mock image container */}
-                <div className="w-full h-40 rounded bg-primary/10 overflow-hidden relative border border-primary/5 flex items-center justify-center text-text-muted">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-accent/5 to-transparent" />
-                  <Clock01Icon className="w-10 h-10 opacity-30" />
+                {/* Recipe Image */}
+                <div className="w-full h-40 rounded bg-primary/10 overflow-hidden relative border border-primary/5">
+                  {recipe.imageUrl ? (
+                    <img 
+                      src={recipe.imageUrl} 
+                      alt={recipe.name} 
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <div className="w-full h-full flex items-center justify-center text-text-muted">
+                      <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-accent/5 to-transparent" />
+                      <Clock01Icon className="w-10 h-10 opacity-30" />
+                    </div>
+                  )}
                 </div>
 
                 <div>

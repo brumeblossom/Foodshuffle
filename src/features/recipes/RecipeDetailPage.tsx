@@ -153,6 +153,18 @@ export const RecipeDetailPage: React.FC = () => {
         
         {/* Left 2 cols: description, ingredients, directions */}
         <div className="lg:col-span-2 space-y-6">
+          {/* Recipe Image Banner */}
+          {recipe.imageUrl && (
+            <div className="w-full h-64 sm:h-80 rounded overflow-hidden relative border border-primary/5 shadow-sm">
+              <img 
+                src={recipe.imageUrl} 
+                alt={recipe.name} 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+            </div>
+          )}
+
           {/* Description */}
           <Card className="p-6 space-y-4">
             <h2 className="text-xl font-bold font-display text-primary border-b border-primary/10 pb-2">About this recipe</h2>
