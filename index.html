@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FoodShuffle — Meal & Recipe Planner</title>
+    
+    <!-- Meta tag for automatic color scheme adaptation and FOUC prevention -->
+    <meta name="color-scheme" content="light dark">
+
+    <!-- Google Fonts: Fraunces (display) and Inter (body/UI) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+    <!-- Inline script to apply dark class and prevent visual flashes early in page load -->
+    <script>
+      {
+        const theme = localStorage.getItem("color-scheme") || 'system';
+        const isDark = theme === 'dark' || (theme === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+        if (isDark) {
+          document.documentElement.classList.add('dark');
+          document.querySelector('meta[name="color-scheme"]').content = 'dark';
+        } else {
+          document.documentElement.classList.remove('dark');
+          document.querySelector('meta[name="color-scheme"]').content = 'light';
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
