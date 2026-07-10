@@ -206,16 +206,21 @@ export const ProfilePage: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         
         {/* Left Side: Profile Form Fields */}
-        <section className="lg:col-span-2 space-y-6">
-          <Card className="p-6">
-            <FormProvider {...methods}>
-              <form onSubmit={handleSubmit(onSubmit as any)} className="space-y-6">
-                
+        <section className="lg:col-span-2">
+          <FormProvider {...methods}>
+            <form onSubmit={handleSubmit(onSubmit as any)} className="space-y-6">
+              
+              {/* Card A: Personal Details & Goals */}
+              <Card className="p-6 space-y-6">
+                <h2 className="text-xl font-bold font-display text-primary border-b border-primary/10 pb-2">
+                  Personal Details & Goals
+                </h2>
+
                 {/* Section 1: Personal Details */}
                 <div className="space-y-4">
-                  <h2 className="text-sm font-bold uppercase tracking-wider text-text-muted border-b border-primary/5 pb-1">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-text-muted">
                     Personal Metrics
-                  </h2>
+                  </h3>
                   
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     {/* Name */}
@@ -291,9 +296,9 @@ export const ProfilePage: React.FC = () => {
 
                 {/* Section 2: Goals & Activity */}
                 <div className="space-y-4 pt-2">
-                  <h2 className="text-sm font-bold uppercase tracking-wider text-text-muted border-b border-primary/5 pb-1">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-text-muted">
                     Goals & Activity Settings
-                  </h2>
+                  </h3>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Goal */}
@@ -358,12 +363,19 @@ export const ProfilePage: React.FC = () => {
                     </div>
                   </div>
                 </div>
+              </Card>
+
+              {/* Card B: Dietary Preferences */}
+              <Card className="p-6 space-y-6">
+                <h2 className="text-xl font-bold font-display text-primary border-b border-primary/10 pb-2">
+                  Dietary Preferences
+                </h2>
 
                 {/* Section 3: Diet & Allergens */}
-                <div className="space-y-4 pt-2">
-                  <h2 className="text-sm font-bold uppercase tracking-wider text-text-muted border-b border-primary/5 pb-1">
+                <div className="space-y-4">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-text-muted">
                     Dietary Requirements & Allergens
-                  </h2>
+                  </h3>
 
                   {/* Diets Grid */}
                   <div className="space-y-2">
@@ -460,9 +472,9 @@ export const ProfilePage: React.FC = () => {
 
                 {/* Section 4: Favorite foods */}
                 <div className="space-y-3 pt-2">
-                  <h2 className="text-sm font-bold uppercase tracking-wider text-text-muted border-b border-primary/5 pb-1">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-text-muted">
                     Favorite Foods
-                  </h2>
+                  </h3>
 
                   <div className="flex gap-2">
                     <input
@@ -501,9 +513,9 @@ export const ProfilePage: React.FC = () => {
 
                 {/* Section 5: Cooking Preferences */}
                 <div className="space-y-4 pt-2">
-                  <h2 className="text-sm font-bold uppercase tracking-wider text-text-muted border-b border-primary/5 pb-1">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-text-muted">
                     Cooking Preferences
-                  </h2>
+                  </h3>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     {/* Skill level */}
@@ -549,15 +561,21 @@ export const ProfilePage: React.FC = () => {
                     </div>
                   </div>
                 </div>
+              </Card>
 
-                {/* Save button */}
-                <Button variant="primary" type="submit" className="w-full py-3 flex justify-center items-center gap-2">
+              {/* Save button - outside and below both cards, with a reduced, non-full-bleed layout */}
+              <div className="flex justify-start pt-2">
+                <Button 
+                  variant="primary" 
+                  type="submit" 
+                  className="px-6 py-3 flex justify-center items-center gap-2 w-full sm:w-auto sm:max-w-xs"
+                >
                   <Settings02Icon className="w-5 h-5" />
                   Save Profile Configuration
                 </Button>
-              </form>
-            </FormProvider>
-          </Card>
+              </div>
+            </form>
+          </FormProvider>
         </section>
 
         {/* Right Side: Calculated Targets, Theme Settings & DB Controls */}
